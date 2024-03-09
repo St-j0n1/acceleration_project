@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
 
     'user',
+    'workout',
 ]
 
 MIDDLEWARE = [
@@ -120,12 +121,13 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_PERMISSION_CLASSES': ( 'rest_framework.permissions.IsAdminUser', )
 }
 
 
 SIMPLE_JWT = {
     # because of more comfortable exploring this project it lifetime is 2hr
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=120),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=240),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,

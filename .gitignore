@@ -1,2 +1,6 @@
 .venv
 .env
+workout_API/db.*
+
+# migrations
+workout_API/user/migrations/0*
