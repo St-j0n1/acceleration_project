@@ -9,9 +9,6 @@ class MusclesRegisterSerializer(serializers.ModelSerializer):
         model = Muscles
         fields = ['id', 'name']
 
-    def to_representation(self, instance):
-        return instance
-
 
 class ItemsRegisterSerializer(serializers.ModelSerializer):
     can_be_used_for = serializers.PrimaryKeyRelatedField(queryset=Muscles.objects.all(), many=True)
@@ -22,8 +19,9 @@ class ItemsRegisterSerializer(serializers.ModelSerializer):
 
 
 class ExercisesRegisterSerializer(serializers.ModelSerializer):
-    target_muscle = MusclesRegisterSerializer(read_only=True, many=True)
+    target_muscle = serializers.PrimaryKeyRelatedField(queryset=Muscles.objects.all(), many=True)
 
     class Meta:
         model = Exercises
-        fields = ['name', 'level', 'description', 'instruction', 'target_muscle', 'items']
+        fields = ['name', 'level', 'description', 'instruction', 'target_muscle', 'items',
+                  'number_of_sets', 'number_of_reps', 'avg_time']

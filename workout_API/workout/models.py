@@ -21,8 +21,11 @@ class Exercises(models.Model):
     level = models.CharField(choices=[(1, 'easy'), (2, 'medium'), (3, 'hard')], default=1, max_length=6)
     description = models.TextField(default='No description')
     instruction = models.TextField(default='No instruction, be carefully')
-    target_muscle = models.ForeignKey(Muscles, on_delete=models.DO_NOTHING, related_name='target_muscle')
+    target_muscle = models.ManyToManyField(Muscles, related_name='target_muscle')
     items = models.ForeignKey(Items, on_delete=models.CASCADE, related_name='items')
+    number_of_sets = models.IntegerField(blank=True, null=True)
+    number_of_reps = models.IntegerField(blank=True, null=True)
+    avg_time = models.IntegerField(blank=True, null=True, help_text='average time for exercise in minutes')
 
     def __str__(self):
         return f"{self.name} - {self.level}"

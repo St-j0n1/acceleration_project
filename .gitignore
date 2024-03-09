@@ -5,3 +5,4 @@ workout_API/db.*
 # migrations
 workout_API/user/migrations/0*
 workout_API/workout/migrations/0*
+workout_API/plan/migrations/0*

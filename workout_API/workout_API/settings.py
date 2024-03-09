@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 
     'user.apps.UserConfig',
     'workout.apps.WorkoutConfig',
+    'plan.apps.PlanConfig'
 ]
 
 MIDDLEWARE = [
