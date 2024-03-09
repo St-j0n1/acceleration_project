@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Muscles, Items, Exercises
 
-# Register your models here.
+admin.site.register(Muscles)
+admin.site.register(Items)
+admin.site.register(Exercises)

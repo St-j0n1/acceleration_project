@@ -27,8 +27,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'drf_spectacular',
 
-    'user',
-    'workout',
+    'user.apps.UserConfig',
+    'workout.apps.WorkoutConfig',
 ]
 
 MIDDLEWARE = [
