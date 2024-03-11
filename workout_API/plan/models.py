@@ -1,6 +1,11 @@
+from datetime import datetime
 from django.db import models
 from user.models import User
 from workout.models import Items, Exercises, Muscles
+
+
+class Achievements(models.Model):
+    pass
 
 
 class Plan(models.Model):

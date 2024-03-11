@@ -9,3 +9,11 @@ class PlanSerializer(serializers.ModelSerializer):
     class Meta:
         model = Plan
         fields = ['owner', 'title', 'exercises', 'private']
+        read_only_fields = ['owner']
+
+    def create(self, validated_data):
+        user = self.context.get('request').user
+        exercises_data = validated_data.pop('exercises')
+        new_plan = Plan.objects.create(owner=user, **validated_data)
+        new_plan.exercises.set(exercises_data)
+        return new_plan
