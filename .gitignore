@@ -1,5 +1,5 @@
 .venv
-.env
+#.env
 workout_API/db.*
 
 # migrations
